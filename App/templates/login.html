@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" style="background: #382c36;">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Gestos - Proyecto de Reconocimiento</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
+    <link rel="stylesheet" href="assets/css/Application-Form.css">
+    <link rel="stylesheet" href="assets/css/Features-Centered-Icons-icons.css">
+    <link rel="stylesheet" href="assets/css/Formulario-Farmacia-styles.css">
+    <link rel="stylesheet" href="assets/css/Sign-Up-Form---Gabriela-Carvalho.css">
+</head>
+
+<body style="background-color: #632b3b;">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background: #632b3b;">
+        <div class="container d-flex justify-content-center">
+            <h1 class="navbar-brand mb-0" style="text-align: center; font-size: 1.5rem; font-weight: bold;">Proyecto de Reconocimiento de Gestos</h1>
+        </div>
+    </nav>
+
+    <section class="py-5">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8">
+                    <div class="card" style="background: #b75c66;">
+                        <div class="card-body text-center">
+                            <div class="my-3">
+                                <img src="assets/img/opencv.png" style="border-radius: 20px; border: 5px solid #b75c66; width: 150px; height: 200px; object-fit: cover;">
+                            </div>
+                            <h1 class="text-white mb-4">Visualización</h1>
+                            <div class="video-container mb-4">
+                                <img id="video" class="img-fluid" width="1600" height="800" style="border-radius: 8px;">
+                            </div>
+                            <p class="text-white">Conexión en tiempo real para el reconocimiento de gestos mediante cámara.</p>
+    
+                            <script>
+                                const socket = new WebSocket("ws://127.0.0.1:8000/ws/video");
+                                const imgElement = document.getElementById("video");
+    
+                                socket.onmessage = function(event) {
+                                    imgElement.src = "data:image/jpeg;base64," + event.data;
+                                };
+    
+                                socket.onclose = function(event) {
+                                    console.log("WebSocket closed");
+                                };
+    
+                                socket.onerror = function(error) {
+                                    console.error("WebSocket Error:", error);
+                                };
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <footer class="text-center py-4" style="background-color: #b75c66;">
+        <p class="text-white mb-0"> 2024 Proyecto personal de Reconocimiento de Gestos - Miguel Isidro Baez - migueleduardoisidrobaez@gmail.com</p>
+    </footer>
+
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/Application-Form-Bootstrap-Image-Uploader.js"></script>
+    <script src="assets/js/Application-Form-submit-form.js"></script>
+    <script src="assets/js/bold-and-dark.js"></script>
+</body>
+
+</html>
