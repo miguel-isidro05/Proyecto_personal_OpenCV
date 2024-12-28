@@ -8,3 +8,5 @@ El proyecto integra una aplicación para la detección de gestos mediante OpenCV
 #### Cuatro o cinco dedos: Continúa levantando los dedos restantes.
 
 Nota: Es necesario estar con un fondo de un solo color, estatico y con suficiente brillo para que funcione correctamente.
+
+Link del video de referencia sobre el funcionamiento: https://drive.google.com/file/d/1XdQqnQDK6K44Twl1omvBKRDAVTyYPon2/view?usp=sharing
